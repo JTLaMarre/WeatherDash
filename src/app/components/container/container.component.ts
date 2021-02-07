@@ -23,5 +23,9 @@ export class ContainerComponent implements OnInit {
     this.service.setTemp(temp);
   }
 
+  setWeather(weather:string){
+    this.service.setWeather(weather);
+  }
+
 
 }

@@ -7,7 +7,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class TodaysweatherService {
 city:string;
-temp:number
+temp:number;
+weather:string;
 openUrlOne:string = `https://api.openweathermap.org/data/2.5/weather?q=`
 openUrlTwo:string=`&appid=63e2ab79c455ba5a3ee05762c641f525`
 
@@ -35,5 +36,8 @@ setTemp(temp:number){
   this.temp=temp;
   console.log(`temp:${this.temp}`)
   }
-
+setWeather(weather:string){
+  this.weather = weather;
+  console.log(`weather:${this.weather}`)
+}
 }

@@ -10,6 +10,7 @@ export class SearchComponent implements OnInit {
 
   @Output() setCity: EventEmitter<any> = new EventEmitter();
   @Output() setTemp: EventEmitter<any> = new EventEmitter();
+  @Output() setWeather: EventEmitter<any> = new EventEmitter();
 
   city:string;
   temp: number;
@@ -36,6 +37,8 @@ export class SearchComponent implements OnInit {
 
       this.setCity.emit(city);
       this.setTemp.emit(data.main.temp);
+      this.setWeather.emit(data.weather[0].main);
+
 
     })
 

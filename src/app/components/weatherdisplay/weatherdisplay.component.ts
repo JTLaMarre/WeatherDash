@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { TodaysweatherService } from '../../services/todaysweather.service';
 @Component({
   selector: 'app-weatherdisplay',
   templateUrl: './weatherdisplay.component.html',
@@ -7,7 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WeatherdisplayComponent implements OnInit {
 
-  constructor() { }
+  public get weather():string{
+    return this.service.weather;
+  }
+  constructor(private service:TodaysweatherService) { }
 
   ngOnInit(): void {
   }
