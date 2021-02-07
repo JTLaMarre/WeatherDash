@@ -33,7 +33,9 @@ setCity(city:any){
   console.log(`city:${this.city}`)
   }
 setTemp(temp:number){
-  this.temp=temp;
+// (0K − 273.15) × 9/5 + 32
+  let farenheit = (temp -273.15)*(9/5)+32
+  this.temp=Math.round(farenheit);
   console.log(`temp:${this.temp}`)
   }
 setWeather(weather:string){
