@@ -12,6 +12,7 @@ export class SearchComponent implements OnInit {
 
   city:string;
 
+
   constructor(private service:TodaysweatherService) { }
 
   ngOnInit(): void {
@@ -21,9 +22,12 @@ export class SearchComponent implements OnInit {
 
     const city = {
       city:this.city
-
     }
-    this.service.addCity(city)
+    this.service.addCity(city).subscribe(data => {
+      console.log(data)
+
+
+    })
 
   }
 
