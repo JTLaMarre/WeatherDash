@@ -8,7 +8,9 @@ import { TodaysweatherService } from '../../services/todaysweather.service';
 })
 export class TempdisplayComponent implements OnInit {
 
-  temp: number=0;
+  public get temp():number{
+    return this.service.temp;
+  }
 
   constructor(private service:TodaysweatherService) { }
 
@@ -19,6 +21,7 @@ export class TempdisplayComponent implements OnInit {
   getTemp(){
     this.service.getTemp().subscribe(data =>{
       console.log(data)
+
     })
   }
 

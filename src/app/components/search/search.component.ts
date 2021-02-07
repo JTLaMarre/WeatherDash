@@ -9,6 +9,7 @@ import { TodaysweatherService } from '../../services/todaysweather.service';
 export class SearchComponent implements OnInit {
 
   @Output() setCity: EventEmitter<any> = new EventEmitter();
+  @Output() setTemp: EventEmitter<any> = new EventEmitter();
 
   city:string;
   temp: number;
@@ -23,8 +24,9 @@ export class SearchComponent implements OnInit {
   onSubmit(){
 
     const city = {
-      city:this.city
-    }
+      city:this.city,
+       }
+
     this.service.addCity(city).subscribe(data => {
       console.log(data)
       this.temp = data.main.temp;
@@ -33,6 +35,7 @@ export class SearchComponent implements OnInit {
       console.log(`${this.weather}`)
 
       this.setCity.emit(city);
+      this.setTemp.emit(data.main.temp);
 
     })
 

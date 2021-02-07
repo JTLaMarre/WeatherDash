@@ -14,10 +14,8 @@ openUrlTwo:string=`&appid=63e2ab79c455ba5a3ee05762c641f525`
 constructor(private http:HttpClient) { }
 
 addCity(city:any){
-  this.city=city.city;
 
-  console.log(this.city);
-
+  this.city=city.city
   let res:any = this.http.get<any>(`${this.openUrlOne}${this.city}${this.openUrlTwo}`);
 
   console.log(res)
@@ -28,5 +26,14 @@ addCity(city:any){
 getTemp(){
 return  this.http.get<any>(`${this.openUrlOne}${this.city}${this.openUrlTwo}`);
 }
+
+setCity(city:any){
+  this.city=city.city;
+  console.log(`city:${this.city}`)
+  }
+setTemp(temp:number){
+  this.temp=temp;
+  console.log(`temp:${this.temp}`)
+  }
 
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { TodaysweatherService } from '../../services/todaysweather.service';
 
 @Component({
   selector: 'app-container',
@@ -8,13 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContainerComponent implements OnInit {
 
-  constructor() { }
+ temp:number;
+
+  constructor(private service:TodaysweatherService) { }
 
   ngOnInit(): void {
   }
 
   setCity(city:any){
-    console.log('container:'+ city.city)
+
+    this.service.setCity(city);
+  }
+  setTemp(temp:number){
+    this.service.setTemp(temp);
   }
 
 
