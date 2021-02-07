@@ -19,7 +19,6 @@ addCity(city:any){
 
   let res:any = this.http.get<any>(`${this.openUrlOne}${this.city}${this.openUrlTwo}`)
 
-  console.log(res);
   return res;
 
 }

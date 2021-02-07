@@ -5,11 +5,17 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SearchComponent } from './components/search/search.component';
+import { ContainerComponent } from './components/container/container.component';
+import { TempdisplayComponent } from './components/tempdisplay/tempdisplay.component';
+import { WeatherdisplayComponent } from './components/weatherdisplay/weatherdisplay.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SearchComponent
+    SearchComponent,
+    ContainerComponent,
+    TempdisplayComponent,
+    WeatherdisplayComponent
   ],
   imports: [
     BrowserModule,

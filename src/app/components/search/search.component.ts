@@ -11,6 +11,8 @@ export class SearchComponent implements OnInit {
 
 
   city:string;
+  temp: number;
+  weather:string;
 
 
   constructor(private service:TodaysweatherService) { }
@@ -24,8 +26,10 @@ export class SearchComponent implements OnInit {
       city:this.city
     }
     this.service.addCity(city).subscribe(data => {
-      console.log(data)
-
+      this.temp = data.main.temp;
+      console.log(`temp:${this.temp}`);
+      this.weather = data.weather[0].main;
+      console.log(`weather:${this.weather}`);
 
     })
 
