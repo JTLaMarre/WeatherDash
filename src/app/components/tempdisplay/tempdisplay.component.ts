@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TodaysweatherService } from '../../services/todaysweather.service';
 
 @Component({
   selector: 'app-tempdisplay',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TempdisplayComponent implements OnInit {
 
-  constructor() { }
+  temp: number=0;
+
+  constructor(private service:TodaysweatherService) { }
 
   ngOnInit(): void {
+
+  }
+
+  getTemp(){
+    this.service.getTemp().subscribe(data =>{
+      console.log(data)
+    })
   }
 
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,EventEmitter,Output } from '@angular/core';
 import { TodaysweatherService } from '../../services/todaysweather.service';
 
 @Component({
@@ -8,7 +8,7 @@ import { TodaysweatherService } from '../../services/todaysweather.service';
 })
 export class SearchComponent implements OnInit {
 
-
+  @Output() setCity: EventEmitter<any> = new EventEmitter();
 
   city:string;
   temp: number;
@@ -26,10 +26,13 @@ export class SearchComponent implements OnInit {
       city:this.city
     }
     this.service.addCity(city).subscribe(data => {
+      console.log(data)
       this.temp = data.main.temp;
       console.log(`temp:${this.temp}`);
       this.weather = data.weather[0].main;
-      console.log(`weather:${this.weather}`);
+      console.log(`${this.weather}`)
+
+      this.setCity.emit(city);
 
     })
 

@@ -13,4 +13,9 @@ export class ContainerComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  setCity(city:any){
+    console.log('container:'+ city.city)
+  }
+
+
 }
