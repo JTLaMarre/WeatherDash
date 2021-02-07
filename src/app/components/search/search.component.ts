@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TodaysweatherService } from '../../services/todaysweather.service';
 
 @Component({
   selector: 'app-search',
@@ -7,15 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchComponent implements OnInit {
 
+
+
   city:string;
 
-  constructor() { }
+  constructor(private service:TodaysweatherService) { }
 
   ngOnInit(): void {
   }
 
   onSubmit(){
-    console.log(this.city)
+
+    const city = {
+      city:this.city
+
+    }
+    this.service.addCity(city)
+
   }
+
 
 }
